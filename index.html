@@ -99,15 +99,17 @@
             setInterval(createHeart, 200);
         }
 
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 4000);
-        }
+
+            function celebrate() {
+    document.getElementById('mainBox').innerHTML = `
+        <div class="photo-box">
+            <img src="jana.JPG" onerror="this.src='jana.jpg'" alt="Jana ❤️">
+        </div>
+        <h1 style="color: #ff4d6d; font-size: 2rem;">I LOVE YOU JANA! ❤️</h1>
+        <p style="font-weight:bold; color:#d63384;">Happy Valentine's Day, my Love!</p>
+    `;
+    setInterval(createHeart, 200);
+            }
     </script>
 </body>
 </html>  
