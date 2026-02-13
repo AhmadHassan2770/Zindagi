@@ -10,7 +10,6 @@
             margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;
             background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
             font-family: 'Segoe UI', sans-serif; overflow: hidden; text-align: center;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="red"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'), auto;
         }
         #envelope-container { cursor: pointer; z-index: 100; transition: 0.5s; }
         .envelope { width: 200px; height: 150px; background: #fff; position: relative; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
@@ -30,7 +29,7 @@
         .btns { display: flex; justify-content: center; align-items: center; gap: 15px; min-height: 110px; }
         
         button { padding: 12px 28px; font-size: 1.2rem; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        #yesBtn { background-color: var(--pink); color: white; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4); }
+        #yesBtn { background-color: var(--pink); color: white; }
         #noBtn { background-color: #adb5bd; color: white; position: relative; }
         
         .heart { position: absolute; color: rgba(255, 77, 109, 0.5); font-size: 20px; animation: float 4s infinite linear; bottom: -50px; }
@@ -41,7 +40,7 @@
 
     <div id="envelope-container" onclick="openLetter()">
         <div class="envelope"><div class="heart-seal">❤️</div></div>
-        <p style="color: white; font-weight: bold; margin-top: 20px; text-shadow: 1px 1px 5px rgba(0,0,0,0.2);">Jana, click to open your message...</p>
+        <p style="color: white; font-weight: bold; margin-top: 20px;">Jana, click to open your message...</p>
     </div>
 
     <div class="container" id="mainBox">
@@ -58,11 +57,9 @@
 
     <audio id="bgMusic" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        </audio>
+    </audio>
 
     <script>
-        // --- 1. SET YOUR ANNIVERSARY DATE HERE (Year, Month-1, Day) ---
-        // For Feb 14 2024, use (2024, 1, 14)
         const startDate = new Date(2024, 1, 14); 
 
         function updateCounter() {
@@ -87,7 +84,6 @@
             noBtn.style.position = 'fixed';
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
-            
             const curSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
             yesBtn.style.fontSize = (curSize * 1.2) + 'px';
         }
@@ -95,7 +91,7 @@
         function celebrate() {
             document.getElementById('mainBox').innerHTML = `
                 <div class="photo-box">
-                    <img src="jana.jpg" alt="Us ❤️">
+                    <img src="Snapchat-1739354807.jpg" alt="Us ❤️">
                 </div>
                 <h1 style="color: #ff4d6d; font-size: 2rem;">I LOVE YOU JANA! ❤️</h1>
                 <p style="font-weight:bold; color:#d63384;">Happy Valentine's Day, my Love!</p>
@@ -114,4 +110,4 @@
         }
     </script>
 </body>
-</html>
+</html>  
