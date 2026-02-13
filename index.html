@@ -17,14 +17,16 @@
         .heart-seal { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; }
 
         .container {
-            display: none; background: rgba(255, 255, 255, 0.95); padding: 2.5rem;
+            display: none; background: rgba(255, 255, 255, 0.95); padding: 2rem;
             border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             width: 85%; max-width: 400px; z-index: 10; animation: fadeIn 1.2s ease-in;
         }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
         
-        h1 { color: #d63384; font-size: 1.6rem; margin-bottom: 10px; }
-        .gif-box img, .photo-box img { width: 100%; border-radius: 15px; margin-bottom: 15px; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h1 { color: #d63384; font-size: 1.5rem; margin-bottom: 10px; }
+        /* Style for the Cat Video */
+        #catVideo, .photo-box img { width: 100%; border-radius: 15px; margin-bottom: 15px; border: 4px solid var(--light-pink); }
+        
         .counter { font-size: 0.9rem; color: #d63384; margin-bottom: 15px; font-weight: bold; background: var(--light-pink); padding: 5px 10px; border-radius: 10px; }
         .btns { display: flex; justify-content: center; align-items: center; gap: 15px; min-height: 110px; }
         
@@ -40,14 +42,14 @@
 
     <div id="envelope-container" onclick="openLetter()">
         <div class="envelope"><div class="heart-seal">❤️</div></div>
-        <p style="color: white; font-weight: bold; margin-top: 20px;">Jana, click to open your message...</p>
+        <p style="color: white; font-weight: bold; margin-top: 20px;">Jana, open your message...</p>
     </div>
 
     <div class="container" id="mainBox">
-        <div class="gif-box">
-            <img id="mainGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYybmZueXByZzZueXN6ZzZueXN6ZzZueXN6ZzZueXN6ZzZueSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif">
-        </div>
-        <div class="counter" id="togetherCounter">Loading our time together...</div>
+        <video id="catVideo" autoplay loop muted playsinline>
+            <source src="cat.mp4" type="video/mp4">
+        </video>
+        <div class="counter" id="togetherCounter">Counting our days...</div>
         <h1 id="question">Will you be my Valentine, Jana? ❤️</h1>
         <div class="btns">
             <button id="yesBtn" onclick="celebrate()">Yes</button>
@@ -60,6 +62,7 @@
     </audio>
 
     <script>
+        // Set to Feb 14, 2024
         const startDate = new Date(2024, 1, 14); 
 
         function updateCounter() {
@@ -91,25 +94,23 @@
         function celebrate() {
             document.getElementById('mainBox').innerHTML = `
                 <div class="photo-box">
-                    <img src="zindgi.JPG" alt="Us ❤️">
+                    <img src="zindgi.jpg" alt="Us ❤️">
                 </div>
                 <h1 style="color: #ff4d6d; font-size: 2rem;">I LOVE YOU JANA! ❤️</h1>
-                <p style="font-weight:bold; color:#d63384;">Happy Valentine's Day, my Love!</p>
+                <p style="font-weight:bold; color:#d63384;">Happy Valentine's Day!</p>
             `;
             setInterval(createHeart, 200);
         }
 
-
-            function celebrate() {
-    document.getElementById('mainBox').innerHTML = `
-        <div class="photo-box">
-            <img src="zindgi.JPG" onerror="this.src='jana.jpg'" alt="Jana ❤️">
-        </div>
-        <h1 style="color: #ff4d6d; font-size: 2rem;">I LOVE YOU JANA! ❤️</h1>
-        <p style="font-weight:bold; color:#d63384;">Happy Valentine's Day, my Love!</p>
-    `;
-    setInterval(createHeart, 200);
-            }
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }
     </script>
 </body>
-</html>  
+</html>
